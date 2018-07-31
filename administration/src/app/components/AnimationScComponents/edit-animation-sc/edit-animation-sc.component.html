@@ -1,0 +1,51 @@
+<div class="container">
+  <form #editForm="ngForm" [formGroup]="editAnimationForm" id="editAnimation" (ngSubmit)="editAnimation(editAnimationForm.value)">
+    <mat-form-field class="edit-Auteur-field mr-5">
+      <input matInput type="text" placeholder="Dénomination*" formControlName="denomination">
+      <mat-error *ngIf="!editAnimationForm.valid">
+        dénomination est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="edit-Auteur-field mr-5">
+      <input matInput [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" placeholder="Date et Temps" formControlName="date">
+      <button mat-icon-button [owlDateTimeTrigger]="dt2" matSuffix (click)="$event.preventDefault()"><mat-icon>calendar_today</mat-icon></button>
+      <owl-date-time  #dt2></owl-date-time>
+      <mat-error *ngIf="!editAnimationForm.valid">
+        Date est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="edit-Auteur-field mr-5">
+      <input matInput type="text" placeholder="Lieu" formControlName="lieu">
+      <mat-error *ngIf="!editAnimationForm.valid">
+        Lieu est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mr-5" style="width: 85%;">
+      <textarea matInput placeholder="Description" rows="6" formControlName="description"></textarea>
+      <mat-error *ngIf="!editAnimationForm.valid">
+        Description est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="action-buttons float-right mt-5 row">
+      <mat-progress-spinner [color]="'warn'" [mode]="'determinate'" [diameter]="30" [value]="uploadProgress" class="mr-4 mt-2" *ngIf="showSpinner">
+      </mat-progress-spinner>
+      <button mat-raised-button class="mr-5" color="primary" type="submit" form="editAnimation" [disabled]="!editAnimationForm.valid">
+        Modifer
+      </button>
+      <button mat-raised-button class="mr-5" color="warn" (click)="annuler($event)">
+        Annuler
+      </button>
+      <button mat-raised-button (click)="$event.preventDefault();editForm.reset();">
+        Réinitialiser
+      </button>
+    </div>
+  </form>
+</div>
+

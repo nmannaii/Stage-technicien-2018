@@ -1,0 +1,115 @@
+<div class="container">
+  <form #addForm="ngForm" class="ml-5" id="addAuteur" [formGroup]="addAuteurForm" (ngSubmit)="addNewAuteur(addAuteurForm.value)">
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="nom" formControlName="nom">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Nom est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field">
+      <input matInput type="text" placeholder="prenom" formControlName="prenom">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Prenom est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="domaine" formControlName="domaine">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Domaine est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field">
+      <!--groupe de recherche select-->
+      <mat-select placeholder="Groupe de recherche" formControlName="groupe_de_recherche">
+        <mat-option *ngFor="let gpe of gpes" value="{{gpe.denomination}}">{{gpe.denomination}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Groupe de recherche est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="spécialité" formControlName="specialite">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Spécialité est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-Auteur-field">
+      <input matInput type="text" placeholder="grade" formControlName="grade">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Grade est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="établissment" formControlName="etablissement">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Etablissement est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-Auteur-field ">
+      <input matInput type="text" placeholder="diplôme en préparation" formControlName="diplome_en_preparation">
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="tel" placeholder="tel" formControlName="tel">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Tel est
+        <strong>Invalide</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field">
+      <input matInput type="{{pwdInputType}}" placeholder="mot de passe" formControlName="mot_de_passe" #pwd>
+      <button mat-icon-button *ngIf="pwd.value" matSuffix mat-icon-button aria-label="Clear" (click)="visibilityCtrl($event,pwd.type)">
+        <mat-icon>{{pwdVisibilityIcon}}</mat-icon>
+      </button>
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Mot de passe est
+        <strong>Court </strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 85%">
+      <input matInput type="email" placeholder="email" formControlName="email">
+      <mat-error *ngIf="!addAuteurForm.valid">
+        Email est
+        <strong>Invalide</strong>
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <!--upload-->
+    <input type="file" formControlName="image" style="display: none;" (change)="fileSelected($event)" accept="image/*" #fileUpload>
+    <button mat-raised-button color="warn" (click)="$event.preventDefault();fileUpload.click()" class="mt-5 mr-2">image</button>
+    <span *ngIf="image!=null">
+      <img [src]="image.preview" id="imagePreview" style="width: 150px;" class="img-thumbnail">
+    </span>
+    <!--/upload-->
+
+    <div class="action-buttons float-right mt-5 row">
+      <mat-progress-spinner [color]="'warn'" [mode]="'determinate'" [value]="uploadProgress" [diameter]="20" class="mr-4 mt-2"
+        *ngIf="showSpinner">
+      </mat-progress-spinner>
+      <button mat-raised-button class="mr-5" color="primary" type="submit" form="addAuteur" [disabled]="!addAuteurForm.valid">
+        Ajouter
+      </button>
+      <button mat-raised-button class="mr-5" color="warn" (click)="annuler($event);addForm.reset()">
+        Annuler
+      </button>
+      <button mat-raised-button (click)="$event.preventDefault();addForm.reset()">
+        Réinitialiser
+      </button>
+    </div>
+  </form>
+</div>

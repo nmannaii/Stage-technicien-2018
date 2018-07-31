@@ -1,0 +1,119 @@
+@font-face {
+    font-family: aqua-font;
+    src: url('/assets/fonts/aqua.ttf');
+}
+
+#logo {
+    font-family: aqua-font;
+    font-size: 30px;
+}
+.sidenav-container{
+    height: 100%;
+}
+
+
+.sidenav {
+    width: 250px;
+}
+
+.menu-link {
+    font-size: 13px;
+}
+
+.menu-link2 {
+    padding-left: 15px;
+    text-align: left;
+}
+
+#spacer{
+    flex: 1 1 auto;
+}
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 200;
+}
+.nav-menu-container {
+    height: 150px;
+}
+@media (min-width: 768px) {
+    .sidenav, .toggle-button, #showSearchBtn{
+        display: none;
+    }
+    .my-toolbar {
+    }
+    #nav-wide-wrapper {
+        padding: 20px;
+    }
+    #logo {
+        padding-left: 20px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    #nav-wide, #your-account{
+        display: none;
+    }
+    .nav-link {
+        padding: 10px;
+    }
+    .search-form {
+        z-index: 9;
+        margin-top: -5px; 
+        margin-left: -45%;
+        visibility: hidden;
+        opacity: 0;
+        transition:  opacity 0.5s
+    }
+    .search-shown {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.account-header {
+    padding: 15px;
+}
+.account-name p{
+    font-weight: 400;
+    font-size: 13px;
+    padding: 15px;
+    color: rgb(43, 43, 43)
+}
+.divider {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: rgba(128, 128, 128, 0.199);
+}
+.search-form {
+    margin-right: 10px;
+}
+.search-field {
+    margin-top: 5.5%;
+    height: 40px;
+    font-size: 16px;
+    padding: 16px;
+    padding-right: 20px;
+    border: 0;
+    background:rgb(255, 255, 255);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.fab-button {
+    box-shadow: none !important;
+    color: black;
+    text-align: center;
+    margin-top: 5.5%;
+    margin-left: -20px;
+}
+
+button:focus {
+    outline:0;
+}
+
+input {
+    outline:0;
+}

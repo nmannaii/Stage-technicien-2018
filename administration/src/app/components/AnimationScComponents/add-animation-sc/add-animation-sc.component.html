@@ -1,0 +1,50 @@
+<div class="container">
+  <form #addForm="ngForm" [formGroup]="addAnimationForm" id="addAnimation" (ngSubmit)="addAnimation(addAnimationForm.value)">
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="Dénomination*" formControlName="denomination">
+      <mat-error *ngIf="!addAnimationForm.valid">
+        dénomination est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date et Temps" formControlName="date">
+      <button mat-icon-button [owlDateTimeTrigger]="dt1" matSuffix (click)="$event.preventDefault()"><mat-icon>calendar_today</mat-icon></button>
+      <owl-date-time  #dt1></owl-date-time>
+      <mat-error *ngIf="!addAnimationForm.valid">
+        Date est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="Lieu" formControlName="lieu">
+      <mat-error *ngIf="!addAnimationForm.valid">
+        Lieu est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mr-5" style="width: 85%;">
+      <textarea matInput placeholder="Description" rows="6" formControlName="description"></textarea>
+      <mat-error *ngIf="!addAnimationForm.valid">
+        Description est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="action-buttons float-right mt-5 row">
+      <mat-progress-spinner [color]="'warn'" [mode]="'determinate'" [diameter]="30" [value]="uploadProgress" class="mr-4 mt-2" *ngIf="showSpinner">
+      </mat-progress-spinner>
+      <button mat-raised-button class="mr-5" color="primary" type="submit" form="addAnimation" [disabled]="!addAnimationForm.valid">
+        Ajouter
+      </button>
+      <button mat-raised-button class="mr-5" color="warn" (click)="annuler($event)">
+        Annuler
+      </button>
+      <button mat-raised-button (click)="$event.preventDefault();addForm.reset();">
+        Réinitialiser
+      </button>
+    </div>
+  </form>
+</div>

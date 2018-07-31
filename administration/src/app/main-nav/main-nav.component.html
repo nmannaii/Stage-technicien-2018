@@ -1,0 +1,38 @@
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)" >
+    <a href="#"><mat-toolbar><span  class="menu-toolbar">ATSSEE</span></mat-toolbar></a>
+    <mat-nav-list class="mat-list">
+      <a mat-list-item class="links" [routerLink]="['./auteur']" routerLinkActive="link-active"><mat-icon>person</mat-icon>Auteur</a>
+      <a mat-list-item class="links" [routerLink]="['./article']" routerLinkActive="link-active"><mat-icon>library_books</mat-icon>Article</a>
+      <a mat-list-item class="links" [routerLink]="['./gpe_de_recherche']" routerLinkActive="link-active"><mat-icon>group_work</mat-icon>Groupe De Recherche</a>
+      <a mat-list-item class="links" [routerLink]="['./actualite']" routerLinkActive="link-active"><mat-icon>rss_feed</mat-icon>Actualité</a>
+      <a mat-list-item class="links" [routerLink]="['./animation_sc']" routerLinkActive="link-active"><mat-icon>event</mat-icon>Animation Scientifique</a>
+      <a mat-list-item class="links" href="#"><mat-icon>announcement</mat-icon>Annonce De Soutenance</a>
+      <a mat-list-item class="links" href="#"><mat-icon>book</mat-icon>Ouvrage</a>
+      <a mat-list-item class="links" href="#"><mat-icon>share</mat-icon>Collaboration Scientifique</a>
+      <a mat-list-item class="links" href="#"><mat-icon>event_available</mat-icon>Manifestation Scientifique</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span id="spacer"></span>
+      <button mat-button style="height: 100%;font-weight: 300" (click)="logout()"><mat-icon>exit_to_app</mat-icon>Déconnexion</button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

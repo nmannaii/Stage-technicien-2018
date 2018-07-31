@@ -1,0 +1,100 @@
+.carousel-slide {
+    height: 600px !important;
+    width: 100vw;
+}
+
+.card-header {
+    width: 100%;
+    height: 20%;
+    background: #396afc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283593, #0d1d92);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283593, #0d1d92); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.card-body ul li {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3F51B5
+}
+.card-body ul li::before {
+    font-family: FontAwesome;
+    content: "\f064";
+    margin-right: 10px;
+}
+.card-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+@media (min-width: 768px){
+    .view {
+        object-fit: fill;
+        width: 100vw;
+        height: 92vh;
+    }
+    p  {
+            font-size: 20px !important;
+    }
+    h3 {
+            font-size: 115px !important;
+            font-weight: 300;
+    }
+    .formBtn {
+        font-size: 25px;
+        padding: 15px;
+        font-weight: 100 !important
+    }
+    .my-caption {
+        bottom: none;
+        top: 35%;
+    }
+    .mouseDown {
+        margin-top: 4em; 
+    }
+    .mouseBody {
+        margin-top: 30px;
+        margin: auto;
+        height: 60px;
+        width: 40px;
+        border: solid 0.05em rgb(233, 233, 233);
+        border-radius: 20px;
+    }
+    .mouseWheel{
+        background: rgb(233, 233, 233);;
+        width: 8px;
+        height: 8px;
+        border-radius: 20px;
+        margin: auto;
+        margin-top: 15px;
+        animation: mouseWheelAnimation 2s infinite ;
+    }
+    @keyframes mouseWheelAnimation {
+        0% {
+            margin-top: 15px;
+            opacity: 1;
+        }
+        75% {
+            margin-top: 25px;
+            opacity: 1;
+        }
+        100% {
+            margin-top: 25px;
+            opacity: 0;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .carousel-caption {
+        p  {
+            font-size: 12px !important;
+        }
+        h3 {
+            font-size: 30px !important;
+            font-weight: 300;
+        }
+    }
+    .my-caption {
+        bottom: none;
+        top: 10%;
+    }
+}

@@ -1,0 +1,83 @@
+<div class="container">
+    <form #editForm="ngForm" class="ml-5" id="editGpeDeRech" [formGroup]="editGpe" (ngSubmit)="editGpeDeRecherche(editGpe.value,groupeDeRech.id)">
+      <mat-form-field class="add-Auteur-field mr-5">
+        <input matInput type="text" placeholder="dénomination" formControlName="denomination">
+        <mat-error *ngIf="!editGpe.valid">
+          Dénomination est
+          <strong>obligatoire</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="add-Auteur-field mr-5">
+        <input matInput type="text" placeholder="abréviation" formControlName="abreviation">
+        <mat-error *ngIf="!editGpe.valid">
+          Abréviation est
+          <strong>obligatoire</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="add-Auteur-field mr-5">
+        <input matInput type="text" placeholder="tel" formControlName="tel">
+        <mat-error *ngIf="!editGpe.valid">
+          tel est
+          <strong>invalide</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="add-Auteur-field mr-5">
+        <input matInput type="text" placeholder="fax" formControlName="fax">
+        <mat-error *ngIf="!editGpe.valid">
+          fax est
+          <strong>invalide</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="add-Auteur-field mr-5">
+        <input matInput type="text" placeholder="email" formControlName="email">
+        <mat-error *ngIf="!editGpe.valid">
+          email est
+          <strong>invalide</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="add-Auteur-field mr-5">
+        <input matInput type="text" placeholder="mots clé" formControlName="mots_cles">
+        <mat-error *ngIf="!editGpe.valid">
+          Mots clé est
+          <strong>obligatoire</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="add-Auteur-field mr-5">
+        <mat-select placeholder="Responsable" formControlName="responsable">
+          <mat-option *ngFor="let resp of responsables" [value]="resp.nom+' '+resp.prenom" [selected]="resp.nom+' '+resp.prenom==groupeDeRech.resonsable">
+            {{resp.nom+" "+resp.prenom}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="!editGpe.valid">
+          Dénomination est
+          <strong>obligatoire</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="add-Auteur-field mr-5 w-75">
+          <textarea matInput formControlName="objectif" placeholder="Objectif" mdTextareaAutosize rows="6"></textarea>
+        <mat-error *ngIf="!editGpe.valid">
+          Objectif est
+          <strong>obligatoire</strong>
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="action-buttons float-right mt-5 row">
+        <mat-progress-spinner
+          [color]="'warn'"
+          [mode]="'indeterminate'"
+          [diameter]="20"
+          class="mr-4 mt-2"
+          *ngIf="showSpinner">
+        </mat-progress-spinner>
+        <button mat-raised-button class="mr-5" color="primary" type="submit" form="editGpeDeRech" [disabled]="!editGpe.valid">
+          Modifier
+        </button>
+        <button mat-raised-button class="mr-5" color="warn" (click)="annuler($event)">
+          Annuler
+        </button>
+        <button mat-raised-button (click)="$event.preventDefault();addForm.reset()">
+          Réinitialiser
+        </button>
+      </div>
+    </form>
+  </div>

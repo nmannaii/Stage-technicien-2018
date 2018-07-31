@@ -1,0 +1,188 @@
+<!--Carousel Wrapper-->
+<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'" [interval]="10000">
+  <!--First slide-->
+  <mdb-slide>
+    <div class="view">
+        <img class="d-block w-100" [src]="images[0]" alt="First slide">
+      <div class="mask rgba-indigo-strong waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption my-caption animated fadeIn zoomIn">
+      <h3 class="h3-responsive">ATSSEE</h3>
+      <p>Analyse et Traitement des Signaux et des Systèmes Électriques et Énergétiques</p>
+      <div class="mouseDown">
+        <div class="mouseBody">
+          <div class="mouseWheel"></div>
+        </div>
+      </div>
+    </div>
+  </mdb-slide>
+  <!--/First slide-->
+  <!--Second slide-->
+  <mdb-slide>
+    <div class="view">
+      <img class="d-block w-100" [src]="images[1]" alt="Second slide">
+      <div class="mask rgba-stylish-strong waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption my-caption animated fadeIn zoomIn">
+      <h3 class="h3-responsive">Posez Vos Questions</h3>
+      <a href="#" mat-raised-button color="warn" style="margin-bottom: 15px;" class="forumBtn">Aller Au Forum</a>
+    </div>
+  </mdb-slide>
+  <!--/Second slide-->
+</mdb-carousel>
+<!--/.Carousel Wrapper-->
+
+
+
+<div class="container">
+  <!--presentation-->
+  <section>
+    <h1 class="text-center py-5 font-weight-bold">Présentation</h1>
+    <div class="row justify-content-md-center">
+      <div class="col-lg-8 col-sm-8 mt-2">
+        <p class="text-center lead">
+          <i class="fa fa-quote-left blue-text"></i>
+          L’unité de recherche ATSSEE « Analyse et Traitement des Signaux et Systèmes Électriques et Énergétiques » est une structure
+          de base qui a été créée à la faculté des sciences de Tunis pour le soutien de la formation doctorale et la réalisation
+          des projets et des activités de recherche scientifique et de développement technologique dans les domaines des
+          sciences et de la technologie en concordance avec les priorités nationales et internationales.
+          <i class="fa fa-quote-right blue-text"></i>
+        </p>
+        <p class="float-right text-center">
+          <span class="red-text font-weight-bold text-monospace">CHERIF Adnen</span>
+          <br>
+          <span style="color:#B2AF8E">Chef de Structure de recherche</span>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!--/presentation-->
+
+  <!--activité et obj-->
+  <section>
+
+    <!--Section heading-->
+    <h1 class="py-5 font-weight-bold text-center mt-5">Activités & Objectifs</h1>
+    <!--Section description-->
+    <p class="px-5 mb-5 pb-3 lead text-center">
+      Les activités de recherche au sein de l’unité ont pour objectif principal la valorisation de la recherche sur des axes porteurs
+      pour l’université et le pays tel que le développement des outils TIC et les applications intégrant les énergies renouvelables.
+    </p>
+
+    <!--Grid row-->
+    <div class="row pt-2">
+
+      <!--Grid column-->
+      <div class="col-lg-5 text-center text-lg-left">
+        <img src="./assets/imgs/objectifs.png" alt="" class="img-fluid z-depth-0">
+      </div>
+      <div class="col-lg-7">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="lead text-center grey-text">Notre objectif est de s’approprier d’un savoir-faire dans des domaines tels que:</p>
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-lg-1">
+            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
+          </div>
+          <div class="col-lg-11">
+            <p class="lead">La conception de nouveaux services de télécommunications</p>
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-lg-1">
+            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
+          </div>
+          <div class="col-lg-11">
+            <p class="lead">Le traitement de signal et de l’information</p>
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-lg-1">
+            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
+          </div>
+          <div class="col-lg-11">
+            <p class="lead">Le développement des systèmes embarqués en vue d’une maîtrise parfaite et d’un transfert vers l’industrie.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Grid row-->
+
+  </section>
+  <!--/activité et obj-->
+
+  <!--axes de rech-->
+  <section>
+    <h1 class="text-center py-4 font-weight-bold">Axes De Recherche</h1>
+    <div class="row justify-content-md-center">
+      <div class="col-lg-8 col-sm-8 mt-2">
+        <p class="text-center lead">
+          l’unité de recherche ATSSEE a participé dans plusieurs projets de recherche R&D nationaux et internationaux tels que, CMCU,
+          PCTM, PAQ, VRR, … Les différents axes de recherche et des travaux actuels menés au sein de l’unité de recherche
+          Analyse et traitement des systèmes électriques et énergétiques sont les suivants:
+        </p>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-lg-6">
+        <div class="col-lg-12 col-md-12 my-3">
+          <div class="card">
+
+            <!--Card header-->
+            <div class="card-header">
+              <h1 class="text-center font-weight-normal white-text">Equipe STIC</h1>
+              <p class="text-center font-weight-thin white-text">Systèmes de Technologies de l'Information et de la Communication</p>
+
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+              <!--Text-->
+              <ul>
+                <li>Traitement de Signal</li>
+                <li>Systèmes Radars en Telecom & réseau 5G</li>
+                <li>Débruitage et Reconnaissance de la parole</li>
+                <li>Sécurité de l’information : Tatouage & cryptage</li>
+                <li>Traitement et transmission audio, image et video</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="col-lg-12 col-md-12 my-3">
+          <div class="card">
+
+            <!--Card header-->
+            <div class="card-header">
+              <h1 class="text-center font-weight-normal white-text">Equipe SER</h1>
+              <p class="text-center font-weight-thin white-text"> Systèmes à Énergies Renouvelables</p><br>
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+              <!--Text-->
+              <ul>
+                <li>Production d’énergie décentralisé à base des SER</li>
+                <li>Système de stockage d’énergie à base d’hydrogène </li>
+                <li>Smart grid </li>
+                <li>Commande des systèmes PV et éoliens </li>
+                <li>Efficacité énergétique et maitrise de l’énergie</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/axes de rech-->
+
+</div>
+
+<footer class="footer-copyright indigo py-5 text-center text-white">
+  © 2018 Copyright:
+  <a href="mailto:najmedine.mannaii@ensit.u-tunis.tn" style="text-decoration: none; color: white">Najmedine MANNAII</a>
+</footer>

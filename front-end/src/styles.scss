@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+body {
+    margin: 0;
+}
+html, body {
+    height: 100%
+}
+
+.mat-menu-panel.nav-menu {
+    max-width: none;
+    width: 35vw;
+    margin-right: 4vw;
+    margin-top: 10px;
+}

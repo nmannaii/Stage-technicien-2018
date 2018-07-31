@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+
+body {
+    margin: 0;
+}
+body{
+    position: relative;
+  }
+html, body {
+    height: 100%;
+}
+
+.mat-list-item-focus {
+  background-color: #303F9F !important;
+  box-shadow: 0 1px 15px gray
+}
+
+.my-pagination /deep/ .ngx-pagination .pagination-previous, .my-pagination /deep/ .ngx-pagination .pagination-next{
+  font-size: 15px;
+  font-weight: 300
+}
+.my-pagination /deep/ .ngx-pagination .current {
+  border-radius: 100%;
+  background: #303F9F;
+}
+.tooltip-red {
+  background: #E53935
+}
+.tooltip-blue {
+  background: #3949AB
+}
+
+table.table td.text {
+  padding-top: 20px;
+}
+table.table th,table.table td {
+  padding-left: 20px;
+}
+.add-Auteur-field, .edit-Auteur-field {
+  width: 40%;
+}

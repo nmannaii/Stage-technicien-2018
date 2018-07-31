@@ -1,0 +1,21 @@
+.my-pagination /deep/ .ngx-pagination .pagination-previous, .my-pagination /deep/ .ngx-pagination .pagination-next{
+    font-size: 15px;
+    font-weight: 300
+  }
+.my-pagination /deep/ .ngx-pagination .current {
+  border-radius: 100%;
+  background: #303F9F;
+}
+.tooltip-red {
+  background: #E53935
+}
+.tooltip-blue {
+  background: #3949AB
+}
+
+table.table td.text {
+  padding-top: 20px; 
+}
+table.table th,table.table td {
+  padding-left: 20px;
+}

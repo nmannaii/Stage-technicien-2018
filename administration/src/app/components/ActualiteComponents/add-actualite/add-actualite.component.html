@@ -1,0 +1,43 @@
+<div class="container">
+  <form #addForm="ngForm" [formGroup]="addActualiteForm" id="addArticle" (ngSubmit)="addActualite(addActualiteForm.value)">
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="dénomination*" formControlName="denomination">
+      <mat-error *ngIf="!addActualiteForm.valid">
+        dénomination est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <textarea matInput  placeholder="Contenu*" formControlName="contenu" rows="8" ></textarea>
+      <mat-error *ngIf="!addActualiteForm.valid">
+        dénomination est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <!--upload-->
+    <input type="file" formControlName="image" style="display: none;" (change)="fileSelected($event)" accept="image/*" #fileUpload>
+    <button mat-raised-button color="warn" (click)="$event.preventDefault();fileUpload.click()" class="mt-5 mr-2">image</button>
+    <span *ngIf="image!=null">
+      <img [src]="image.preview" id="imagePreview" style="width: 150px; cursor: pointer;" class="img-thumbnail" (click)="showImg()">
+    </span>
+    <!--/upload-->
+
+    <div class="action-buttons float-right mt-5 row">
+      <mat-progress-spinner [color]="'warn'" [mode]="'determinate'" [diameter]="30" [value]="uploadProgress" class="mr-4 mt-2"
+        *ngIf="showSpinner">
+      </mat-progress-spinner>
+      <button mat-raised-button class="mr-5" color="primary" type="submit" form="addArticle" [disabled]="!addActualiteForm.valid">
+        Ajouter
+      </button>
+      <button mat-raised-button class="mr-5" color="warn" (click)="annuler($event);addForm.reset()">
+        Annuler
+      </button>
+      <button mat-raised-button (click)="$event.preventDefault();addForm.reset();selectedFile=null;">
+        Réinitialiser
+      </button>
+    </div>
+  </form>
+</div>

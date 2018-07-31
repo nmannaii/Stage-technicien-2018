@@ -1,0 +1,109 @@
+<mat-sidenav-container class="sidenav-container">
+  <!--For mobile view-->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a routerLink="/" mat-list-item>Accueil</a>
+      <a routerLink="/contact" mat-list-item >Contact</a>
+      <a routerLink="/publications" mat-list-item >Publications</a>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title color="primary" style="box-shadow: none;">
+              Menu
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a routerLink="/annuaire" mat-list-item class="menu-link">Annuaire</a>
+          <a routerLink="/visiteurs" mat-list-item class="menu-link">Visiteurs</a>
+          <a routerLink="/publications" mat-list-item class="menu-link">Publications</a>
+          <a routerLink="/animation-scientifique" mat-list-item class="menu-link">Animation Scientifique</a>
+          <a routerLink="/annonces-de-soutenances" mat-list-item class="menu-link">Annonces De Soutenances</a>
+          <a routerLink="/groupe-de-recherche" mat-list-item class="menu-link">Groupe De Recherche</a>
+          <a routerLink="/cooperation-nat-internat" mat-list-item class="menu-link">Coopération Nationale & Internationale</a>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  <!--/For mobile view-->
+  <!--For widescreen view-->
+    <mat-toolbar color="primary" class="my-toolbar">
+      <mat-toolbar-row>
+        <button class="toggle-button" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span id="logo">ATSSEE</span>
+        <span id="spacer"></span>
+        <div id="nav-wide-wrapper" fxLayout="row">
+
+          <form class="search-form" fxLayout="row" [ngClass]="{'search-shown': showSearch}">
+            <input type="text" placeholder="tapez pour rechercher" class="search-field">
+            <button mat-mini-fab color="accent"  class="fab-button" (click)="search($event)">
+              <mat-icon>search</mat-icon>
+            </button>
+          </form>
+
+
+          <div id="nav-wide">
+            <a routerLink="" mat-button class="nav-link">Accueil</a>
+            <a routerLink="/contact" mat-button class="nav-link">Contact</a>
+            <a routerLink="/publications" mat-button class="nav-link">Publications</a>
+            <a class="nav-link" mat-button [matMenuTriggerFor]="menu">Menu
+              <mat-icon>arrow_drop_down</mat-icon>
+            </a>
+            <mat-menu class="nav-menu" #menu="matMenu" overlapTrigger="false">
+              <div class="nav-menu-container" fxLayout="row" fxLayoutGap="60px;">
+                <div fxLayout="column" fxLayoutGap="30px;">
+                  <a routerLink="/annuaire" mat-menu-item class="menu-link2">Annuaire</a>
+                  <a routerLink="/visiteurs" mat-menu-item class="menu-link2">Visiteurs</a>
+                  <a routerLink="/groupe-de-recherche" mat-menu-item class="menu-link2">Groupe De Recherche</a>
+                </div>
+                <div fxLayout="column" fxLayoutGap="30px;">
+                  <a routerLink="/animation-scientifique" mat-menu-item class="menu-link2">Animation Scientifique</a>
+                  <a routerLink="/annonces-de-soutenances" mat-menu-item class="menu-link2">Annonces De Soutenances</a>
+                  <a routerLink="/cooperation-nat-internat" mat-menu-item class="menu-link2">Coopération Nationale & Internationale</a>
+                </div>
+              </div>
+            </mat-menu>
+          </div>
+
+          <button id="showSearchBtn" mat-icon-button style="margin-top: 10px;" (click)="showSearchBar($event)">
+            <mat-icon>search</mat-icon>
+          </button>
+
+          <a class="nav-link" style="position: relative;z-index: 1;" mat-button [matMenuTriggerFor]="account">
+            <mat-icon>account_circle</mat-icon>
+            <span id="your-account">Votre Compte</span>
+            <mat-icon>arrow_drop_down</mat-icon>
+          </a>
+          <mat-menu #account="matMenu" overlapTrigger="false">
+            <div class="account-menu-container">
+              <div class="account-header" fxLayout="row">
+                <div class="account-avatar">
+                  <img src="/assets/imgs/avatar.png" width="60px">
+                </div>
+                <div class="account-name">
+                  <p>First && Last Name</p>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="account-menu-content">
+                <a href="#" mat-menu-item>
+                  <mat-icon>person</mat-icon>Profile</a>
+                <a href="#" mat-menu-item>
+                  <mat-icon>settings</mat-icon>Paramètres</a>
+                <div class="divider"></div>
+                <a href="#" mat-menu-item>
+                  <mat-icon>power_settings_new</mat-icon>Déconnexion</a>
+              </div>
+            </div>
+          </mat-menu>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!--/For widescreen view-->
+    <!-- Add Content Here -->
+    <ng-content flex></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

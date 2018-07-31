@@ -1,0 +1,127 @@
+<div class="container">
+  <form #editForm="ngForm" [formGroup]="editArticleForm" id="editArticle" (ngSubmit)="editArticle(editArticleForm.value,article.id)">
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="dénomination *" formControlName="denomination">
+      <mat-error *ngIf="notValid">
+        dénomination est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="number" placeholder="numéro *" formControlName="numero">
+      <mat-error *ngIf="notValid">
+        numéro est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="volume *" formControlName="volume">
+      <mat-error *ngIf="notValid">
+        volume est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-Auteur-field mr-5">
+      <mat-label>date de parution*</mat-label>
+      <input matInput  [matDatepicker]="date_de_parution" placeholder="mm/jj/aaaa" formControlName="date_de_parution" autocomplete="off">
+      <mat-datepicker-toggle matSuffix [for]="date_de_parution"></mat-datepicker-toggle>
+      <mat-datepicker touchUi  #date_de_parution></mat-datepicker>
+      <mat-error *ngIf="notValid">
+        date de parution est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="number" placeholder="pages *" formControlName="pages">
+      <mat-error *ngIf="notValid">
+        pages est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+      
+
+<!--
+    <mat-form-field class="add-Auteur-field mr-5">
+      <mat-select placeholder="auteur(s) *" formControlName="auteurs" multiple [(ngModel)]="selectedItems" #selecting>
+        <input #searchInput matInput type="search" autocomplete="off" (input)="filterAuteur($event.target.value)" placeholder="recherche" style="height:40px;padding: 15px; border-bottom: solid 1px grey">
+        <mat-option *ngFor="let auteur of auteursFiltered" [value]="auteur.nom+' '+auteur.prenom">
+          {{auteur.nom+' '+auteur.prenom}}
+        </mat-option>
+        <mat-option class="notFound" *ngIf="notFound404" disabled>Rien est trouvé!</mat-option>
+      </mat-select>
+      <mat-error *ngIf="notValid">
+        auteur(s) est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field> -->
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="domaine *" formControlName="domaine">
+      <mat-error *ngIf="notValid">
+        domaine est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="revue scientifique *" formControlName="revue_scientifique">
+      <mat-error *ngIf="notValid">
+        revue scientifique est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="add-Auteur-field mr-5">
+      <input matInput type="text" placeholder="Mots cles *" formControlName="mot_cle">
+      <mat-error *ngIf="notValid">
+        Mots clés sont
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+    
+    <ng-select 
+    formControlName="auteurs"
+    [items]="auteurs"
+    bindLabel="nom"
+    [multiple]="true"
+    [closeOnSelect]="false"
+    placeholder="Ajouter un(des) auteur(s)"
+    [hideSelected]="true"
+    notFoundText="Rien est trouvé"
+    [(ngModel)]="selectedItems">
+    </ng-select>
+
+
+    <mat-form-field class="add-Auteur-field mr-5 w-100">
+      <textarea matInput TextareaAutosize rows="4"placeholder="résumé *" formControlName="resume" class="w-100"></textarea>
+      <mat-error *ngIf="notValid">
+        résumé est
+        <strong>obligatoire</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <img [src]="imageURL" width="40px" class="mx-3 mr-5" *ngIf="article.fichier">
+    <span>{{article.fichier}}</span><br>
+    <input type="file"  style="display: none;" #fileUpload (change)="fileSelected($event)">
+    <button mat-raised-button color="warn" (click)="$event.preventDefault();fileUpload.click()" class="mr-1 mt-5">fichier</button>
+    <span *ngIf="selectedFile!=null">{{selectedFile.name}}</span>
+
+    
+    <div class="action-buttons float-right mt-5 row">
+      <mat-progress-spinner [color]="'warn'" [mode]="'determinate'" [diameter]="30" [value]="uploadProgress" class="mr-4 mt-2" *ngIf="showSpinner">
+      </mat-progress-spinner>
+      <button mat-raised-button class="mr-5" color="primary" type="submit" form="editArticle" [disabled]="!editArticleForm.valid">
+        Modifier
+      </button>
+      <button mat-raised-button class="mr-5" color="warn" (click)="annuler($event)">
+        Annuler
+      </button>
+      <button mat-raised-button (click)="$event.preventDefault();editForm.reset();selectedFile=null;">
+        Réinitialiser
+      </button>
+    </div>
+  </form>
+</div>

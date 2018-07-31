@@ -1,0 +1,38 @@
+<table class="table table-responsive-lg table-bordered table-sm" *ngIf="!notFound">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Dénomination</th>
+      <th>Tel</th>
+      <th>Fax</th>
+      <th>Email</th>
+      <th>Responsable</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let gpe of gpes | paginate : {id: 'gpeP',itemsPerPage: 10, currentPage: p,totalItems: total}">
+      <td class="text">
+        {{gpe.id}}
+      </td>
+      <td class="text">{{gpe.denomination}}</td>
+      <td class="text">{{gpe.tel}}</td>
+      <td class="text">{{gpe.fax}}</td>
+      <td class="text">{{gpe.email}}</td>
+      <td class="text">{{gpe.responsable}}</td>
+      <td>
+        <div class="button-row">
+          <button mat-icon-button color="primary" matTooltip="Modifier" [matTooltipPosition]="'before'" matTooltipClass="tooltip-blue" (click)="sendToEdit(gpe)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" matTooltip="Supprimer" [matTooltipPosition]="'after'" matTooltipClass="tooltip-red" (click)="delete(gpe.id)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 class="h1-responsive text-center grey-text my-5 text-uppercase" *ngIf="notFound">Aucun élément a été trouvé</h1>
+<pagination-controls class="my-pagination float-right" id="gpeP" (pageChange)="p = $event" maxSize="9" directionLinks="true"
+  autoHide="true" previousLabel="Précédent" nextLabel="Suivant" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"></pagination-controls>

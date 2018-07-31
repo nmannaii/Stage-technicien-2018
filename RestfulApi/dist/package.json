@@ -1,0 +1,22 @@
+{
+  "name": "portailweb",
+  "version": "1.0.0",
+  "description": "atssee web portal",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.38.0",
+    "sequelize-hierarchy": "^1.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

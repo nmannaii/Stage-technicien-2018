@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card mt-5">
+      <div class="card-header py-4 z-depth-1-half row">
+        <div class="col header-title">
+          <h3 class="header-text">{{headerText}}</h3>
+          <p class="header-sub-text"></p>
+        </div>
+        <span style="flex: 1 1 auto"></span>
+        <button mat-button [matMenuTriggerFor]="addMenu">
+          <mat-icon>person_add</mat-icon>Ajouter
+        </button>
+        <mat-menu #addMenu="matMenu" [xPosition]="'before'" [yPosition]="'below'" [overlapTrigger]="false">
+          <a [routerLink]="['./add_article']" mat-menu-item>Ajouter un seul article</a>
+          <button mat-menu-item>A partir d'un fichier</button>
+        </mat-menu>
+      </div>
+      <div class="card-body">
+       <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

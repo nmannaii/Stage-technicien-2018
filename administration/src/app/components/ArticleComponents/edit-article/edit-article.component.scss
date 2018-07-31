@@ -1,0 +1,12 @@
+.add-Auteur-field {
+    width: 40%
+}
+::ng-deep .notFound .mat-option-pseudo-checkbox{
+    display: none !important;
+}
+.notFound{
+    text-align: center;
+}
+ng-select.ng-invalid.ng-touched .ng-select-container{
+    border-color: #dc3545;
+}
